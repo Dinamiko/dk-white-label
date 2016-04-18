@@ -147,6 +147,7 @@ class DKWL_Settings {
 					'default'		=> '',
 					'placeholder'	=> ''
 				),
+				/*
 				array(
 					'id' 			=> 'color_scheme_1',
 					'label'			=> __( 'Color 1', 'dkpdfg' ),
@@ -154,27 +155,7 @@ class DKWL_Settings {
 					'type'			=> 'color',
 					'default'		=> '#222'
 				),
-				array(
-					'id' 			=> 'color_scheme_2',
-					'label'			=> __( 'Color 2', 'dkpdfg' ),
-					'description'	=> '',
-					'type'			=> 'color',
-					'default'		=> '#333'
-				),
-				array(
-					'id' 			=> 'color_scheme_3',
-					'label'			=> __( 'Color 3', 'dkpdfg' ),
-					'description'	=> '',
-					'type'			=> 'color',
-					'default'		=> '#0073aa'
-				),	
-				array(
-					'id' 			=> 'color_scheme_4',
-					'label'			=> __( 'Color 4', 'dkpdfg' ),
-					'description'	=> '',
-					'type'			=> 'color',
-					'default'		=> '#00a0d2'
-				),
+				*/
 			)
 		);
 		// ...
