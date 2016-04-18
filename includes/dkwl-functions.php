@@ -14,12 +14,12 @@ function dkwl_login_logo(){
     ?>
     <style type="text/css">
         .login h1 a {
-            background-image: url(<?php echo $logo[0];?>);
-            background-size: <?php echo $logo[1];?>px <?php echo $logo[2];?>px;
+            background-image: url(<?php echo $logo[0];?>) !important;
+            background-size: <?php echo $logo[1];?>px <?php echo $logo[2];?>px !important;
             background-position: center center;
             background-repeat: no-repeat;
-            width: <?php echo $logo[1];?>px;
-            height: <?php echo $logo[2];?>px;
+            width: <?php echo $logo[1];?>px !important;
+            height: <?php echo $logo[2];?>px !important;
         }
     </style>
     <?php 
