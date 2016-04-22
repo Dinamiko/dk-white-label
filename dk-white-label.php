@@ -24,14 +24,11 @@ if ( ! class_exists( 'DKWL' ) ) {
 		public static function instance() {
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof DKWL ) ) {
-
 				self::$instance = new DKWL;
-
 				self::$instance->setup_constants();
-
-				add_action( 'plugins_loaded', array( self::$instance, 'dkwl_load_textdomain' ) );				
-				
-				self::$instance->includes();	
+				add_action( 'plugins_loaded', array( self::$instance, 'dkwl_load_textdomain' ) );								
+				self::$instance->includes();
+				self::$instance->roles = new DKWL_Roles();	
 
 			}
 
@@ -66,37 +63,10 @@ if ( ! class_exists( 'DKWL' ) ) {
 
 			}
 
+			require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-roles.php';
 			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-load-js-css.php';	
 			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-functions.php';
-
-			/*
-			// upgrade dashboard screen
-			// TODO not worked when upgrading in plugins list page
-			//require_once DKWL_PLUGIN_DIR . 'includes/dkwl-upgrades.php';
-
-			// settings / metaboxes
-			if ( is_admin() ) {
-
-				require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-settings.php';
-				$settings = new DKWL_Settings( $this );
-
-				require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-admin-api.php';
-				$this->admin = new DKWL_Admin_API();
-
-				require_once DKWL_PLUGIN_DIR . 'includes/dkwl-metaboxes.php';
-
-			}
-
-			// load css / js
-								
-
-			// functions
-			
-
-			// shortcodes
-			require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-template-loader.php';
-			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-shortcodes.php';
-			*/
+			require_once DKWL_PLUGIN_DIR . 'includes/install.php';
 
 		}
 
