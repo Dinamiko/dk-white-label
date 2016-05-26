@@ -1,13 +1,13 @@
 <?php
 /*
  * Plugin Name: DK White Label
- * Version: 0.2
+ * Version: 0.3
  * Plugin URI: 
  * Description: White Label WordPress Admin 
  * Author: Emili Castells
  * Author URI: http://www.dinamiko.com
  * Requires at least: 3.9
- * Tested up to: 4.4.2
+ * Tested up to: 4.5.2
  *
  * Text Domain: dkwl
  * Domain Path: /languages/
@@ -28,7 +28,6 @@ if ( ! class_exists( 'DKWL' ) ) {
 				self::$instance->setup_constants();
 				add_action( 'plugins_loaded', array( self::$instance, 'dkwl_load_textdomain' ) );								
 				self::$instance->includes();
-				self::$instance->roles = new DKWL_Roles();	
 			}
 
 			return self::$instance;
@@ -43,7 +42,7 @@ if ( ! class_exists( 'DKWL' ) ) {
 
 		private function setup_constants() {
 
-			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '0.2' ); }
+			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '0.3' ); }
 			if ( ! defined( 'DKWL_PLUGIN_DIR' ) ) { define( 'DKWL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_URL' ) ) { define( 'DKWLPLUGIN_URL', plugin_dir_url( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_FILE' ) ) { define( 'DKWL_PLUGIN_FILE', __FILE__ ); }			
@@ -62,10 +61,8 @@ if ( ! class_exists( 'DKWL' ) ) {
 
 			}
 
-			require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-roles.php';
 			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-load-js-css.php';	
 			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-functions.php';
-			require_once DKWL_PLUGIN_DIR . 'includes/install.php';
 
 		}
 

@@ -25,10 +25,9 @@ class DKWL_Settings {
 		// Add settings page to menu
 		add_action( 'admin_menu' , array( $this, 'add_menu_item' ) );
 
-		/*
 		// Add settings link to plugins page	
 		add_filter( 'plugin_action_links_' . plugin_basename( DKWL_PLUGIN_FILE ) , array( $this, 'add_settings_link' ) );
-		*/		
+	
 	}
 
 	/**
@@ -44,58 +43,9 @@ class DKWL_Settings {
 	 * @return void
 	 */
 	public function add_menu_item () {
-		
-		// main menu
-		//$page = add_menu_page( 'DK White Label', 'DK White Label', 'manage_options', 'dkwl' . '_settings',  array( $this, 'settings_page' ) );	
 		$page = add_options_page( __( 'DK White Label', 'dkwl' ) , __( 'DK White Label', 'dkwl' ) , 'manage_options' , 'dkwl' . '_settings' ,  array( $this, 'settings_page' ) );
-		
-		// settings assets
 		add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
-
-		/*
-		// Addons submenu
-		add_submenu_page( 'dkwl' . '_settings', 'Addons', 'Addons', 'manage_options', 'dkwl-addons', array( $this, 'dkwl_addons_screen' ));
-		// support
-		add_submenu_page( 'dkwl' . '_settings', 'Support', 'Support', 'manage_options', 'dkwl-support', array( $this, 'dkwl_support_screen' ));
-		*/
-
 	}
-
-	public function dkwl_support_screen() { ?>
-		
-		<div class="wrap">
-			<h2>DK White Label Support</h2>
-
-			<div class="dkwl-item">			
-				<h3>Documentation</h3>
-				<p>Everything you need to know for getting DK White Label up and running.</p>
-				<p><a href="http://wp.dinamiko.com/demos/dkwl/documentation/" target="_blank">Go to Documentation</a></p>
-			</div>
-
-			<div class="dkwl-item">			
-				<h3>Support</h3>
-				<p>Having trouble? don't worry, create a ticket in the support forum.</p>
-				<p><a href="https://wordpress.org/support/plugin/dk-white-label" target="_blank">Go to Support</a></p>
-			</div>
-
-		</div>
-
-	<?php }
-
-	public function dkwl_addons_screen() { ?>
-
-		<div class="wrap">
-			<h2>DK White Label Addons</h2>
-
-			<div class="dkwl-item">			
-				<h3>DK White Label Generator</h3>
-				<p>Allows creating White Label documents with your selected WordPress content, also allows adding a Cover and a Table of contents.</p>
-				<p><a href="http://codecanyon.net/item/dk-white-label-generator/13530581" target="_blank">Go to DK White Label Generator</a></p>
-			</div>
-
-		</div>
-
-	<?php }
 
 	/**
 	 * Load settings JS & CSS
