@@ -20,8 +20,11 @@ if ( ! class_exists( 'DKWL' ) ) {
 	final class DKWL {
 
 		private static $instance;
+		public $_test = 123;
 
 		public static function instance() {
+
+			$_test = 123;
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof DKWL ) ) {
 				self::$instance = new DKWL;
@@ -35,18 +38,14 @@ if ( ! class_exists( 'DKWL' ) ) {
 		}
 
 		public function dkwl_load_textdomain() {
-
 			load_plugin_textdomain( 'dkwl', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
-
 		}
 
 		private function setup_constants() {
-
 			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '0.3' ); }
 			if ( ! defined( 'DKWL_PLUGIN_DIR' ) ) { define( 'DKWL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_URL' ) ) { define( 'DKWLPLUGIN_URL', plugin_dir_url( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_FILE' ) ) { define( 'DKWL_PLUGIN_FILE', __FILE__ ); }			
-
 		}
 
 		private function includes() {
@@ -58,6 +57,8 @@ if ( ! class_exists( 'DKWL' ) ) {
 
 				require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-settings.php';
 				$settings = new DKWL_Settings( $this );
+
+				$_test = 123;
 
 			}
 
@@ -73,6 +74,11 @@ if ( ! class_exists( 'DKWL' ) ) {
 		public function __wakeup() {
 			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'dkwl' ), DKWL_VERSION );
 		}
+
+		public function dkwl_add_option( $name, $value ) {
+			return update_option( $name, $value );
+		}
+
 
 	}
 
