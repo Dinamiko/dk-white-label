@@ -39,6 +39,19 @@ function my_login_logo_url_title() {
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 /**
+* hide toolbar in front-end
+*/
+function dkwl_hide_frontend_toolbar_function(){
+    $hide_frontend_toolbar = get_option('dkwl_hide_frontend_toolbar', '' );
+    if( $hide_frontend_toolbar == 'on' ) {
+        return false;
+    } else {
+        return true;
+    }    
+}
+add_filter( 'show_admin_bar' , 'dkwl_hide_frontend_toolbar_function' );
+
+/**
 * hide admin menus
 */
 function dkwl_hide_admin_menus() {

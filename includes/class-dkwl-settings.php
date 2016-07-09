@@ -110,9 +110,16 @@ class DKWL_Settings {
 		);
 		// ...
 		$settings['admin_elements'] = array(
-			'title'	=> __( 'Admin elements', 'dkwl' ),
+			'title'	=> __( 'Elements', 'dkwl' ),
 			'description'			=> '',
 			'fields'				=> array(
+				array(
+					'id' 			=> 'hide_frontend_toolbar',
+					'label'			=> __( 'Hide Toolbar in front-end', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'checkbox',
+					'default'		=> ''
+				),
 				array(
 					'id' 			=> 'hide_toolbar_elements',
 					'label'			=> __( 'Hide Toolbar elements', 'dkwl' ),
