@@ -7,7 +7,7 @@
  * Author: Emili Castells
  * Author URI: http://www.dinamiko.com
  * Requires at least: 3.9
- * Tested up to: 4.5.2
+ * Tested up to: 4.5.3
  *
  * Text Domain: dkwl
  * Domain Path: /languages/
@@ -20,11 +20,8 @@ if ( ! class_exists( 'DKWL' ) ) {
 	final class DKWL {
 
 		private static $instance;
-		public $_test = 123;
 
 		public static function instance() {
-
-			$_test = 123;
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof DKWL ) ) {
 				self::$instance = new DKWL;
@@ -58,8 +55,6 @@ if ( ! class_exists( 'DKWL' ) ) {
 				require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-settings.php';
 				$settings = new DKWL_Settings( $this );
 
-				$_test = 123;
-
 			}
 
 			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-load-js-css.php';	
@@ -75,19 +70,11 @@ if ( ! class_exists( 'DKWL' ) ) {
 			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'dkwl' ), DKWL_VERSION );
 		}
 
-		public function dkwl_add_option( $name, $value ) {
-			return update_option( $name, $value );
-		}
-
-
 	}
 
 }
 
 function DKWL() {
-
 	return DKWL::instance();
-
 }
-
 DKWL();
