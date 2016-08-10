@@ -115,6 +115,21 @@ function dkwl_hide_dashboard_metaboxes() {
 add_action( 'wp_dashboard_setup', 'dkwl_hide_dashboard_metaboxes' );
 
 /**
+* hide dashboard help tab
+*/
+function dkwl_hide_dashboard_help_tab( $old_help, $screen_id, $screen ){
+
+    $hide_dashboard_help_tab = get_option('dkwl_hide_dashboard_help_tab', '' );
+
+    if( $hide_dashboard_help_tab == 'on' ) {
+        $screen->remove_help_tabs();
+        return $old_help;
+    } 
+
+}
+add_filter( 'contextual_help', 'dkwl_hide_dashboard_help_tab', 999, 3 );
+
+/**
 * change admin footer text 
 */
 function dkwl_admin_footer_text( $text ) {

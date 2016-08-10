@@ -161,6 +161,13 @@ class DKWL_Settings {
 					'default'		=> array()
 				),
 				array(
+					'id' 			=> 'hide_dashboard_help_tab',
+					'label'			=> __( 'Hide Dashboard Help Tab', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'checkbox',
+					'default'		=> ''
+				),
+				array(
 					'id' 			=> 'admin_footer_text',
 					'label'			=> __( 'Admin Footer text' , 'dkwl' ),
 					'description'	=> '',
