@@ -148,6 +148,19 @@ class DKWL_Settings {
 					'default'		=> array()
 				),
 				array(
+					'id' 			=> 'hide_dashboard_metaboxes',
+					'label'			=> __( 'Hide Dashboard Metaboxes', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'checkbox_multi',
+					'options'		=> array( 'welcome' => 'Welcome',
+											  'dashboard_right_now' => 'At a Glance', 
+											  'dashboard_quick_press' => 'Quick Draft', 
+											  'dashboard_activity' => 'Activity',
+											  'dashboard_primary' => 'WordPress News', 
+											),
+					'default'		=> array()
+				),
+				array(
 					'id' 			=> 'admin_footer_text',
 					'label'			=> __( 'Admin Footer text' , 'dkwl' ),
 					'description'	=> '',

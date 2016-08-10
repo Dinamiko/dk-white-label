@@ -92,7 +92,30 @@ function dkwl_hide_toolbar_elements( $wp_admin_bar ) {
 add_action( 'admin_bar_menu', 'dkwl_hide_toolbar_elements', 999 );
 
 /**
-*
+* hide dashboard metaboxes
+*/
+function dkwl_hide_dashboard_metaboxes() {
+
+    $hide_dashboard_metaboxes = get_option( 'dkwl_hide_dashboard_metaboxes', array() );
+
+    if( $hide_dashboard_metaboxes ) {
+        foreach ( $hide_dashboard_metaboxes as $element ) { 
+            if( $element == 'welcome' ) {
+                global $wp_filter;
+                unset( $wp_filter['welcome_panel'] );
+            } else if( $element == 'dashboard_activity' || $element == 'dashboard_right_now' ) {
+                remove_meta_box( $element, 'dashboard', 'normal' );
+            } else {
+                remove_meta_box( $element, 'dashboard', 'side' );
+            }                
+        }
+    } 
+
+}
+add_action( 'wp_dashboard_setup', 'dkwl_hide_dashboard_metaboxes' );
+
+/**
+* change admin footer text 
 */
 function dkwl_admin_footer_text( $text ) {
 
