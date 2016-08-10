@@ -5,12 +5,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
 * login logo
 */
-function dkwl_login_logo(){
+function dkwl_login_styles(){
 
-  $branding_logo = get_option( 'dkwl_branding_logo', '' );
+  $loginpage_logo = get_option( 'dkwl_loginpage_logo', '' );
+  $loginpage_bg_color = get_option( 'dkwl_loginpage_bg_color', '#f1f1f1' );
 
-  if( $branding_logo ){
-    $logo = wp_get_attachment_image_src( $branding_logo, 'medium' );
+  if( $loginpage_logo ){
+    $logo = wp_get_attachment_image_src( $loginpage_logo, 'medium' );
     ?>
     <style type="text/css">
         .login h1 a {
@@ -21,12 +22,15 @@ function dkwl_login_logo(){
             width: <?php echo $logo[1];?>px !important;
             height: <?php echo $logo[2];?>px !important;
         }
+        body, html {
+            background: <?php echo $loginpage_bg_color;?> !important;
+        }
     </style>
     <?php 
   } 
 
 }  
-add_action( 'login_enqueue_scripts', 'dkwl_login_logo' );
+add_action( 'login_enqueue_scripts', 'dkwl_login_styles' );
 
 function my_login_logo_url() {
     return home_url();
@@ -102,3 +106,40 @@ function dkwl_admin_footer_text( $text ) {
 
 }
 add_filter('admin_footer_text', 'dkwl_admin_footer_text');
+
+/**
+* sanitize dkwl options
+*/ 
+function dkwl_sanitize_options() {
+    add_filter( 'pre_update_option_dkwl_admin_footer_text', 'dkwl_update_field_admin_footer_text', 10, 2 );  
+}
+add_action( 'init', 'dkwl_sanitize_options' );
+
+/**
+* sanitizes dkwl_admin_footer_text option
+*/
+function dkwl_update_field_admin_footer_text( $new_value, $old_value ) {
+
+    $arr = array(
+        'a' => array(
+            'href' => array(),
+            'title' => array(),
+            'class' => array(),
+            'id' => array(),
+            'style' => array()
+        ),
+        'em' => array(),
+        'strong' => array(),
+        'span' => array(
+           'title' => array(),
+           'class' => array(),
+           'id' => array(),
+           'style' => array()
+        ),
+    );
+
+    $new_value = wp_kses( $new_value, $arr );
+    return $new_value;
+
+}
+

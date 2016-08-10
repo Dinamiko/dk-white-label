@@ -84,31 +84,29 @@ class DKWL_Settings {
 	 */
 	private function settings_fields () {
 
-		// branding
-		$settings['branding'] = array(
-			'title'	=> __( 'Branding', 'dkwl' ),
+		// login page
+		$settings['loginpage'] = array(
+			'title'	=> __( 'Login Page', 'dkwl' ),
 			'description'			=> '',
 			'fields'				=> array(
 				array(
-					'id' 			=> 'branding_logo',
+					'id' 			=> 'loginpage_logo',
 					'label'			=> __( 'Logo' , 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'image',
 					'default'		=> '',
 					'placeholder'	=> ''
 				),
-				/*
 				array(
-					'id' 			=> 'color_scheme_1',
-					'label'			=> __( 'Color 1', 'dkpdfg' ),
+					'id' 			=> 'loginpage_bg_color',
+					'label'			=> __( 'Background Color', 'dkpdfg' ),
 					'description'	=> '',
 					'type'			=> 'color',
-					'default'		=> '#222'
+					'default'		=> '#f1f1f1'
 				),
-				*/
 			)
 		);
-		// ...
+		// elements
 		$settings['admin_elements'] = array(
 			'title'	=> __( 'Elements', 'dkwl' ),
 			'description'			=> '',
