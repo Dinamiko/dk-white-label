@@ -168,10 +168,8 @@ class DKWL_Admin_API {
 			break;
 
 			case 'color':
-				?><div class="color-picker" style="position:relative;">
-			        <input type="text" name="<?php esc_attr_e( $option_name ); ?>" class="color" value="<?php esc_attr_e( $data ); ?>" />
-			        <div style="position:absolute;background:#FFF;z-index:99;border-radius:100%;" class="colorpicker"></div>
-			    </div>
+				?>
+				<input name="<?php esc_attr_e( $option_name ); ?>" type="text" id="color-<?php esc_attr_e( $option_name ); ?>" value="<?php esc_attr_e( $data ); ?>" class="colorpicker-dkwl" autocomplete="off" />
 			    <?php
 			break;
 

@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: DK White Label
- * Version: 0.3
+ * Version: 1.0
  * Plugin URI: 
  * Description: White Label WordPress Admin 
  * Author: Emili Castells
@@ -39,7 +39,7 @@ if ( ! class_exists( 'DKWL' ) ) {
 		}
 
 		private function setup_constants() {
-			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '0.3' ); }
+			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '1.0' ); }
 			if ( ! defined( 'DKWL_PLUGIN_DIR' ) ) { define( 'DKWL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_URL' ) ) { define( 'DKWLPLUGIN_URL', plugin_dir_url( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_FILE' ) ) { define( 'DKWL_PLUGIN_FILE', __FILE__ ); }			
