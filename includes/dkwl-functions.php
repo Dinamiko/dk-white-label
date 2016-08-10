@@ -146,6 +146,77 @@ function dkwl_admin_footer_text( $text ) {
 add_filter('admin_footer_text', 'dkwl_admin_footer_text');
 
 /**
+*
+*/
+function dkwl_get_custom_color_scheme_css() {
+
+    $enable_custom_color_scheme = get_option('dkwl_enable_custom_color_scheme', 'on' );
+
+    if( $enable_custom_color_scheme == 'on' ) {
+
+        if ( isset( $_GET['dk-white-label-custom-color-scheme'] ) ) {
+            dkwl_print_custom_color_scheme_css();
+            exit;
+        }
+        
+    }
+
+}
+add_action('admin_init', 'dkwl_get_custom_color_scheme_css', 0);
+
+/**
+*
+*/
+function dkwl_print_custom_color_scheme_css() {
+
+    $enable_custom_color_scheme = get_option('dkwl_enable_custom_color_scheme', 'on' );
+
+    if( $enable_custom_color_scheme == 'on' ) {
+        header("Content-type: text/css");
+        require_once(plugin_dir_path(__FILE__) . '/dk-white-label-custom-color-scheme.php');
+    }
+
+}
+
+/**
+*
+*/
+function dkwl_create_custom_color_scheme() {
+
+    $enable_custom_color_scheme = get_option('dkwl_enable_custom_color_scheme', 'on' );
+
+    if( $enable_custom_color_scheme == 'on' ) {
+
+        $color_scheme_1 = get_option('dkwl_color_scheme_1', '#222' );
+        $color_scheme_2 = get_option('dkwl_color_scheme_2', '#333' );
+        $color_scheme_3 = get_option('dkwl_color_scheme_3', '#0073aa' );
+        $color_scheme_4 = get_option('dkwl_color_scheme_4', '#00a0d2' );
+
+        wp_admin_css_color( 'dkwl_custom_color_scheme', __( 'Custom Color Scheme' ),
+            admin_url('?dk-white-label-custom-color-scheme', __FILE__),
+            array( $color_scheme_1, $color_scheme_2, $color_scheme_3, $color_scheme_4 )
+        );
+
+    }
+
+}
+add_action('admin_init', 'dkwl_create_custom_color_scheme');
+
+/**
+*
+*/
+function dkwl_assign_color_scheme( $result, $option, $user ) {
+
+    $enable_custom_color_scheme = get_option('dkwl_enable_custom_color_scheme', 'on' );
+
+    if( $enable_custom_color_scheme == 'on' ) {
+        return 'dkwl_custom_color_scheme';
+    }
+
+}
+add_filter( 'get_user_option_admin_color', 'dkwl_assign_color_scheme', 5, 3 );
+
+/**
 * sanitize dkwl options
 */ 
 function dkwl_sanitize_options() {
@@ -180,4 +251,7 @@ function dkwl_update_field_admin_footer_text( $new_value, $old_value ) {
     return $new_value;
 
 }
+
+
+
 

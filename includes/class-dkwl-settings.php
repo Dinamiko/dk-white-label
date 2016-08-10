@@ -110,7 +110,7 @@ class DKWL_Settings {
 		);
 		// elements
 		$settings['admin_elements'] = array(
-			'title'	=> __( 'Elements', 'dkwl' ),
+			'title'	=> __( 'UI Elements', 'dkwl' ),
 			'description'			=> '',
 			'fields'				=> array(
 				array(
@@ -176,6 +176,48 @@ class DKWL_Settings {
 					'type'			=> 'text',
 					'default'		=> '',
 					'placeholder'	=> ''
+				),
+			)
+		);
+		// color scheme
+		$settings['admincolors'] = array(
+			'title'	=> __( 'Custom Color Scheme', 'dkwl' ),
+			'description'			=> '',
+			'fields'				=> array(
+				array(
+					'id' 			=> 'enable_custom_color_scheme',
+					'label'			=> __( 'Enable Custom Color Scheme', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'checkbox',
+					'default'		=> ''
+				),
+				array(
+					'id' 			=> 'color_scheme_1',
+					'label'			=> __( 'Color Scheme 1', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'color',
+					'default'		=> '#222'
+				),
+				array(
+					'id' 			=> 'color_scheme_2',
+					'label'			=> __( 'Color Scheme 2', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'color',
+					'default'		=> '#333'
+				),
+				array(
+					'id' 			=> 'color_scheme_3',
+					'label'			=> __( 'Color Scheme 3', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'color',
+					'default'		=> '#0073aa'
+				),
+				array(
+					'id' 			=> 'color_scheme_4',
+					'label'			=> __( 'Color Scheme 4', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'color',
+					'default'		=> '#00a0d2'
 				),
 			)
 		);
