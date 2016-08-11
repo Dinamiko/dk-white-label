@@ -194,8 +194,10 @@ function dkwl_create_custom_color_scheme() {
 
         wp_admin_css_color( 'dkwl_custom_color_scheme', __( 'Custom Color Scheme' ),
             admin_url('?dk-white-label-custom-color-scheme', __FILE__),
-            array( $color_scheme_1, $color_scheme_2, $color_scheme_3, $color_scheme_4 )
+            array( $color_scheme_2, $color_scheme_1, $color_scheme_3, $color_scheme_4 )
         );
+
+        remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
     }
 

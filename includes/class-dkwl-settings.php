@@ -171,7 +171,7 @@ class DKWL_Settings {
 				),
 				array(
 					'id' 			=> 'admin_footer_text',
-					'label'			=> __( 'Admin Footer text' , 'dkwl' ),
+					'label'			=> __( 'Footer Text' , 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'text',
 					'default'		=> '',
