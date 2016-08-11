@@ -88,7 +88,7 @@ class DKWL_Settings {
 
 		// login page
 		$settings['loginpage'] = array(
-			'title'	=> __( 'Login Page', 'dkwl' ),
+			'title'	=> __( 'Login Screen', 'dkwl' ),
 			'description'			=> '',
 			'fields'				=> array(
 				array(
@@ -181,12 +181,12 @@ class DKWL_Settings {
 		);
 		// color scheme
 		$settings['admincolors'] = array(
-			'title'	=> __( 'Custom Color Scheme', 'dkwl' ),
+			'title'	=> __( 'Color Scheme', 'dkwl' ),
 			'description'			=> '',
 			'fields'				=> array(
 				array(
 					'id' 			=> 'enable_custom_color_scheme',
-					'label'			=> __( 'Enable Custom Color Scheme', 'dkwl' ),
+					'label'			=> __( 'Enable Color Scheme', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'checkbox',
 					'default'		=> ''
@@ -196,14 +196,14 @@ class DKWL_Settings {
 					'label'			=> __( 'Color Scheme 1', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
-					'default'		=> '#222'
+					'default'		=> '#333'
 				),
 				array(
 					'id' 			=> 'color_scheme_2',
 					'label'			=> __( 'Color Scheme 2', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
-					'default'		=> '#333'
+					'default'		=> '#222'
 				),
 				array(
 					'id' 			=> 'color_scheme_3',
@@ -217,7 +217,7 @@ class DKWL_Settings {
 					'label'			=> __( 'Color Scheme 4', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
-					'default'		=> '#00a0d2'
+					'default'		=> '#999'
 				),
 			)
 		);
