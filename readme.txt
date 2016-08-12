@@ -18,10 +18,6 @@ Take control over Dashboard experience with DK White Label.
 * Hide Dashboard UI Elements
 * Create your own Color Scheme
 
-= Documentation =
- 
-* <a href="http://wp.dinamiko.com/demos/dk-white-label" target="_blank">See Documentation</a>
-
 = Collaborate in Github =
 
 * <a href="https://github.com/Dinamiko/dk-white-label" target="_blank">https://github.com/Dinamiko/dk-white-label</a>
@@ -41,5 +37,6 @@ Installing "DK White Label" can be done either by searching for "DK White Label"
 3. Color Scheme
 
 == Changelog ==
+
 = 1.0 =
 * Initial release
