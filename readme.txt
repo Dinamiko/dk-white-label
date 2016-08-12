@@ -18,7 +18,7 @@ Take control over Dashboard experience with DK White Label.
 * Hide Dashboard UI Elements
 * Create your own Color Scheme
 
-= Collaborate in Github =
+= Github =
 
 * <a href="https://github.com/Dinamiko/dk-white-label" target="_blank">https://github.com/Dinamiko/dk-white-label</a>
 
