@@ -43,7 +43,7 @@ class DKWL_Settings {
 	 * @return void
 	 */
 	public function add_menu_item () {
-		$page = add_options_page( __( 'DK White Label', 'dkwl' ) , __( 'DK White Label', 'dkwl' ) , 'manage_options' , 'dkwl' . '_settings' ,  array( $this, 'settings_page' ) );
+		$page = add_options_page( apply_filters( 'dkwl_options_page_title', __( 'DK White Label', 'dkwl' ) ), apply_filters( 'dkwl_options_page_title', __( 'DK White Label', 'dkwl' ) ), 'manage_options' , 'dkwl' . '_settings' ,  array( $this, 'settings_page' ) );
 		add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
 	}
 
@@ -145,7 +145,7 @@ class DKWL_Settings {
 											  'plugins' => 'Plugins',
 											  'users' => 'Users',
 											  'tools' => 'Tools',
-											  'options-general' => 'Settings',
+											  //'options-general' => 'Settings',
 											),
 					'default'		=> array()
 				),
@@ -299,7 +299,7 @@ class DKWL_Settings {
 
 		// Build page HTML
 		$html = '<div class="wrap" id="' . 'dkwl' . '_settings">' . "\n";
-			$html .= '<h2>' . __( 'DK White Label' , 'dkwl' ) . '</h2>' . "\n";
+			$html .= '<h2>' . apply_filters( 'dkwl_options_page_title', __( 'DK White Label', 'dkwl' ) ) . '</h2>' . "\n";
 
 			$tab = '';
 			if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {

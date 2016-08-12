@@ -1,38 +1,30 @@
 === DK White Label ===
 Contributors: dinamiko
-Tags: custom login, white label admin, admin branding, white label cms, branding, client, cms, custom admin, custom admin dashboard, custom branding, dashboard, login, login screen, remove admin bar
+Tags: admin branding, appearance, branding, client, cms, custom, custom login, custom admin, custom admin dashboard, custom branding, dashboard, login, login page, login screen, remove admin bar, white label admin, white label cms, 
 Requires at least: 3.9.6
 Tested up to: 4.5.3
 Stable tag: 1.0
 
-Customize WordPress Dashboard
+Customize WordPress Dashboard Branding
 
 == Description ==
 
 Are you creating WordPress websites for your clients?
-Save time and confusion with a simplified, custom dashboard for your clients.
+Take control over Dashboard experience with DK White Label.
 
 = Features =
  
 * Login Screen Customization
-* Hide UI Elements
+* Hide Dashboard UI Elements
 * Create your own Color Scheme
-
-= Demo =
-
-* <a href="http://wp.dinamiko.com/demos/dkpdf" target="_blank">See Demo</a>
-
-= See DK White Label in action =
-
-https://www.youtube.com/watch?v=gs9JOrGaZ9o
 
 = Documentation =
  
-* <a href="http://wp.dinamiko.com/demos/dkpdf/documentation" target="_blank">See Documentation</a>
+* <a href="http://wp.dinamiko.com/demos/dk-white-label" target="_blank">See Documentation</a>
 
 = Collaborate in Github =
 
-* <a href="https://github.com/Dinamiko/dk-pdf" target="_blank">https://github.com/Dinamiko/dk-pdf</a>
+* <a href="https://github.com/Dinamiko/dk-white-label" target="_blank">https://github.com/Dinamiko/dk-white-label</a>
 
 == Installation ==
 
@@ -44,10 +36,9 @@ Installing "DK White Label" can be done either by searching for "DK White Label"
 
 == Screenshots ==
 
-1. Front-end PDF Button  
-2. PDF Button Settings
-3. PDF Header & Footer Settings
-4. Disable PDF Button Metabox
+1. Login Screen  
+2. UI Elements
+3. Color Scheme
 
 == Changelog ==
 = 1.0 =

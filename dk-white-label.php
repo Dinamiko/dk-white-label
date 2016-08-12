@@ -3,7 +3,7 @@
  * Plugin Name: DK White Label
  * Version: 1.0
  * Plugin URI: 
- * Description: White Label WordPress Admin 
+ * Description: Customize WordPress Dashboard Branding. 
  * Author: Emili Castells
  * Author URI: http://www.dinamiko.com
  * Requires at least: 3.9
