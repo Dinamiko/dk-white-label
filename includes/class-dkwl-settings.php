@@ -193,31 +193,45 @@ class DKWL_Settings {
 				),
 				array(
 					'id' 			=> 'color_scheme_1',
-					'label'			=> __( 'Color Scheme 1', 'dkwl' ),
+					'label'			=> __( 'Color 1', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
-					'default'		=> '#333'
+					'default'		=> '#32373c'
 				),
 				array(
 					'id' 			=> 'color_scheme_2',
-					'label'			=> __( 'Color Scheme 2', 'dkwl' ),
+					'label'			=> __( 'Color 2', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
-					'default'		=> '#222'
+					'default'		=> '#23282d'
 				),
 				array(
 					'id' 			=> 'color_scheme_3',
-					'label'			=> __( 'Color Scheme 3', 'dkwl' ),
+					'label'			=> __( 'Color 3', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
 					'default'		=> '#0073aa'
 				),
 				array(
 					'id' 			=> 'color_scheme_4',
-					'label'			=> __( 'Color Scheme 4', 'dkwl' ),
+					'label'			=> __( 'Color 4', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'color',
 					'default'		=> '#999'
+				),
+				array(
+					'id' 			=> 'color_scheme_link',
+					'label'			=> __( 'Color Link', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'color',
+					'default'		=> '#0073aa'
+				),
+				array(
+					'id' 			=> 'color_scheme_link_hover',
+					'label'			=> __( 'Color Link Hover', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'color',
+					'default'		=> '#0096dd'
 				),
 			)
 		);

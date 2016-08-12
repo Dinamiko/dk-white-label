@@ -2,19 +2,21 @@
 Contributors: dinamiko
 Tags: custom login, white label admin, admin branding, white label cms, branding, client, cms, custom admin, custom admin dashboard, custom branding, dashboard, login, login screen, remove admin bar
 Requires at least: 3.9.6
-Tested up to: 4.3.1
+Tested up to: 4.5.3
 Stable tag: 1.0
 
-Customize WordPress admin
+Customize WordPress Dashboard
 
 == Description ==
 
-Are you creating WordPress websites for clients?
+Are you creating WordPress websites for your clients?
 Save time and confusion with a simplified, custom dashboard for your clients.
 
 = Features =
  
-* ...
+* Login Screen Customization
+* Hide UI Elements
+* Create your own Color Scheme
 
 = Demo =
 

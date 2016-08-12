@@ -187,14 +187,16 @@ function dkwl_create_custom_color_scheme() {
 
     if( $enable_custom_color_scheme == 'on' ) {
     
-        $color_scheme_1 = get_option('dkwl_color_scheme_1', '#333' );
-        $color_scheme_2 = get_option('dkwl_color_scheme_2', '#222' );
+        $color_scheme_1 = get_option('dkwl_color_scheme_1', '#32373c' );
+        $color_scheme_2 = get_option('dkwl_color_scheme_2', '#23282d' );
         $color_scheme_3 = get_option('dkwl_color_scheme_3', '#0073aa' );
         $color_scheme_4 = get_option('dkwl_color_scheme_4', '#999' );
+        $color_scheme_link = get_option('dkwl_color_scheme_link', '#0073aa' );
+        $color_scheme_link_hover = get_option('dkwl_color_scheme_link_hover', '#0096dd' );
 
         wp_admin_css_color( 'dkwl_custom_color_scheme', __( 'Custom Color Scheme' ),
             admin_url('?dk-white-label-custom-color-scheme', __FILE__),
-            array( $color_scheme_2, $color_scheme_1, $color_scheme_3, $color_scheme_4 )
+            array( $color_scheme_2, $color_scheme_1, $color_scheme_3, $color_scheme_4, $color_scheme_link, $color_scheme_link_hover )
         );
 
         remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
