@@ -86,7 +86,7 @@ function dkwl_hide_toolbar_elements( $wp_admin_bar ) {
         foreach ( $hide_toolbar_elements as $element ) { 
             $wp_admin_bar->remove_node( $element );     
         }
-    } 
+    }
 
 }
 add_action( 'admin_bar_menu', 'dkwl_hide_toolbar_elements', 999 );

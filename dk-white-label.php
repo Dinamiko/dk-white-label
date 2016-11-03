@@ -47,6 +47,8 @@ if ( ! class_exists( 'DKWL' ) ) {
 
 		private function includes() {
 
+			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-utils.php';
+
 			if ( is_admin() ) {
 
 				require_once DKWL_PLUGIN_DIR . 'includes/class-dkwl-admin-api.php';

@@ -1,6 +1,8 @@
 jQuery(document).ready(function($) {
 
-    $('.colorpicker-dkwl').wpColorPicker();
+    if( $('.colorpicker-dkwl').length ) {
+        $('.colorpicker-dkwl').wpColorPicker();
+    }
 
     /***** Uploading images *****/
 
