@@ -1,9 +1,9 @@
 <?php
 /*
  * Plugin Name: DK White Label
- * Version: 1.0
- * Plugin URI: 
- * Description: Customize WordPress Dashboard Branding. 
+ * Version: 1.1
+ * Plugin URI:
+ * Description: Customize WordPress Dashboard Branding.
  * Author: Emili Castells
  * Author URI: http://www.dinamiko.com
  * Requires at least: 3.9
@@ -26,7 +26,7 @@ if ( ! class_exists( 'DKWL' ) ) {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof DKWL ) ) {
 				self::$instance = new DKWL;
 				self::$instance->setup_constants();
-				add_action( 'plugins_loaded', array( self::$instance, 'dkwl_load_textdomain' ) );								
+				add_action( 'plugins_loaded', array( self::$instance, 'dkwl_load_textdomain' ) );
 				self::$instance->includes();
 			}
 
@@ -35,14 +35,14 @@ if ( ! class_exists( 'DKWL' ) ) {
 		}
 
 		public function dkwl_load_textdomain() {
-			load_plugin_textdomain( 'dkwl', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+			load_plugin_textdomain( 'dkwl', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 		}
 
 		private function setup_constants() {
-			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '1.0' ); }
+			if ( ! defined( 'DKWL_VERSION' ) ) { define( 'DKWL_VERSION', '1.1' ); }
 			if ( ! defined( 'DKWL_PLUGIN_DIR' ) ) { define( 'DKWL_PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); }
 			if ( ! defined( 'DKWL_PLUGIN_URL' ) ) { define( 'DKWLPLUGIN_URL', plugin_dir_url( __FILE__ ) ); }
-			if ( ! defined( 'DKWL_PLUGIN_FILE' ) ) { define( 'DKWL_PLUGIN_FILE', __FILE__ ); }			
+			if ( ! defined( 'DKWL_PLUGIN_FILE' ) ) { define( 'DKWL_PLUGIN_FILE', __FILE__ ); }
 		}
 
 		private function includes() {
@@ -57,7 +57,7 @@ if ( ! class_exists( 'DKWL' ) ) {
 
 			}
 
-			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-load-js-css.php';	
+			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-load-js-css.php';
 			require_once DKWL_PLUGIN_DIR . 'includes/dkwl-functions.php';
 
 		}

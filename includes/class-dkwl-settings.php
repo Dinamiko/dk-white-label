@@ -25,9 +25,9 @@ class DKWL_Settings {
 		// Add settings page to menu
 		add_action( 'admin_menu' , array( $this, 'add_menu_item' ) );
 
-		// Add settings link to plugins page	
+		// Add settings link to plugins page
 		add_filter( 'plugin_action_links_' . plugin_basename( DKWL_PLUGIN_FILE ) , array( $this, 'add_settings_link' ) );
-	
+
 	}
 
 	/**
@@ -63,10 +63,10 @@ class DKWL_Settings {
     	// We're including the WP media scripts here because they're needed for the image upload field
     	// If you're not including an image upload then you can leave this function call out
     	wp_enqueue_media();
-  	
+
     	wp_register_script( 'dkwl' . '-settings-js', plugins_url( 'dk-white-label/assets/js/settings-admin.js' ), array( 'farbtastic', 'jquery' ), '1.0.0' );
-    	wp_enqueue_script( 'dkwl' . '-settings-js' );   	
-    	
+    	wp_enqueue_script( 'dkwl' . '-settings-js' );
+
 	}
 
 	/**
@@ -136,10 +136,10 @@ class DKWL_Settings {
 					'label'			=> __( 'Hide Menu pages', 'dkwl' ),
 					'description'	=> '',
 					'type'			=> 'checkbox_multi',
-					'options'		=> array( 'index' => 'Dashboard', 
-											  'edit' => 'Posts', 
+					'options'		=> array( 'index' => 'Dashboard',
+											  'edit' => 'Posts',
 											  'upload' => 'Media',
-											  'page' => 'Pages', 
+											  'page' => 'Pages',
 											  'edit-comments' => 'Comments',
 											  'themes' => 'Appearance',
 											  'plugins' => 'Plugins',
@@ -155,10 +155,10 @@ class DKWL_Settings {
 					'description'	=> '',
 					'type'			=> 'checkbox_multi',
 					'options'		=> array( 'welcome' => 'Welcome',
-											  'dashboard_right_now' => 'At a Glance', 
-											  'dashboard_quick_press' => 'Quick Draft', 
+											  'dashboard_right_now' => 'At a Glance',
+											  'dashboard_quick_press' => 'Quick Draft',
 											  'dashboard_activity' => 'Activity',
-											  'dashboard_primary' => 'WordPress News', 
+											  'dashboard_primary' => 'WordPress News',
 											),
 					'default'		=> array()
 				),
@@ -232,6 +232,43 @@ class DKWL_Settings {
 					'description'	=> '',
 					'type'			=> 'color',
 					'default'		=> '#0096dd'
+				),
+			)
+		);
+		// emails
+		$settings['email'] = array(
+			'title'	=> __( 'Email', 'dkwl' ),
+			'description'			=> '',
+			'fields'				=> array(
+				array(
+					'id' 			=> 'enable_email',
+					'label'			=> __( 'Enable Email', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'checkbox',
+					'default'		=> ''
+				),
+				array(
+					'id' 			=> 'email_from',
+					'label'			=> __( 'From Email' , 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'text',
+					'default'		=> get_option( 'admin_email' ),
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'email_from_name',
+					'label'			=> __( 'From Name' , 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'text',
+					'default'		=> get_option( 'blogname' ),
+					'placeholder'	=> ''
+				),
+				array(
+					'id' 			=> 'html_formated_email',
+					'label'			=> __( 'HTML Formatted Email', 'dkwl' ),
+					'description'	=> '',
+					'type'			=> 'checkbox',
+					'default'		=> ''
 				),
 			)
 		);

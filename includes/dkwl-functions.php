@@ -26,10 +26,10 @@ function dkwl_login_styles(){
             background: <?php echo $loginpage_bg_color;?> !important;
         }
     </style>
-    <?php 
-  } 
+    <?php
+  }
 
-}  
+}
 add_action( 'login_enqueue_scripts', 'dkwl_login_styles' );
 
 function my_login_logo_url() {
@@ -51,7 +51,7 @@ function dkwl_hide_frontend_toolbar_function(){
         return false;
     } else {
         return true;
-    }    
+    }
 }
 add_filter( 'show_admin_bar' , 'dkwl_hide_frontend_toolbar_function' );
 
@@ -65,13 +65,13 @@ function dkwl_hide_admin_menus() {
     if( $hide_menu_pages ) {
         foreach ( $hide_menu_pages as $page ) {
             if( $page == 'page' ) {
-                remove_menu_page( 'edit.php?post_type=page' );  
+                remove_menu_page( 'edit.php?post_type=page' );
             } else {
-                remove_menu_page( $page.'.php' ); 
-            }          
+                remove_menu_page( $page.'.php' );
+            }
         }
     }
-    
+
 }
 add_action( 'admin_menu', 'dkwl_hide_admin_menus' );
 
@@ -83,8 +83,8 @@ function dkwl_hide_toolbar_elements( $wp_admin_bar ) {
     $hide_toolbar_elements = get_option( 'dkwl_hide_toolbar_elements', array() );
 
     if( $hide_toolbar_elements ) {
-        foreach ( $hide_toolbar_elements as $element ) { 
-            $wp_admin_bar->remove_node( $element );     
+        foreach ( $hide_toolbar_elements as $element ) {
+            $wp_admin_bar->remove_node( $element );
         }
     }
 
@@ -99,7 +99,7 @@ function dkwl_hide_dashboard_metaboxes() {
     $hide_dashboard_metaboxes = get_option( 'dkwl_hide_dashboard_metaboxes', array() );
 
     if( $hide_dashboard_metaboxes ) {
-        foreach ( $hide_dashboard_metaboxes as $element ) { 
+        foreach ( $hide_dashboard_metaboxes as $element ) {
             if( $element == 'welcome' ) {
                 global $wp_filter;
                 unset( $wp_filter['welcome_panel'] );
@@ -107,9 +107,9 @@ function dkwl_hide_dashboard_metaboxes() {
                 remove_meta_box( $element, 'dashboard', 'normal' );
             } else {
                 remove_meta_box( $element, 'dashboard', 'side' );
-            }                
+            }
         }
-    } 
+    }
 
 }
 add_action( 'wp_dashboard_setup', 'dkwl_hide_dashboard_metaboxes' );
@@ -124,13 +124,13 @@ function dkwl_hide_dashboard_help_tab( $old_help, $screen_id, $screen ){
     if( $hide_dashboard_help_tab == 'on' ) {
         $screen->remove_help_tabs();
         return $old_help;
-    } 
+    }
 
 }
 add_filter( 'contextual_help', 'dkwl_hide_dashboard_help_tab', 999, 3 );
 
 /**
-* change admin footer text 
+* change admin footer text
 */
 function dkwl_admin_footer_text( $text ) {
 
@@ -146,7 +146,7 @@ function dkwl_admin_footer_text( $text ) {
 add_filter('admin_footer_text', 'dkwl_admin_footer_text');
 
 /**
-*
+* get admin custom color scheme
 */
 function dkwl_get_custom_color_scheme_css() {
 
@@ -158,14 +158,14 @@ function dkwl_get_custom_color_scheme_css() {
             dkwl_print_custom_color_scheme_css();
             exit;
         }
-        
+
     }
 
 }
 add_action('admin_init', 'dkwl_get_custom_color_scheme_css', 0);
 
 /**
-*
+* print admin custom color scheme
 */
 function dkwl_print_custom_color_scheme_css() {
 
@@ -179,14 +179,14 @@ function dkwl_print_custom_color_scheme_css() {
 }
 
 /**
-*
+* create admin custom color scheme
 */
 function dkwl_create_custom_color_scheme() {
 
     $enable_custom_color_scheme = get_option('dkwl_enable_custom_color_scheme', '' );
 
     if( $enable_custom_color_scheme == 'on' ) {
-    
+
         $color_scheme_1 = get_option('dkwl_color_scheme_1', '#32373c' );
         $color_scheme_2 = get_option('dkwl_color_scheme_2', '#23282d' );
         $color_scheme_3 = get_option('dkwl_color_scheme_3', '#0073aa' );
@@ -207,7 +207,7 @@ function dkwl_create_custom_color_scheme() {
 add_action('admin_init', 'dkwl_create_custom_color_scheme');
 
 /**
-*
+* assign admin custom color scheme
 */
 function dkwl_assign_color_scheme( $result, $option, $user ) {
 
@@ -221,10 +221,92 @@ function dkwl_assign_color_scheme( $result, $option, $user ) {
 add_filter( 'get_user_option_admin_color', 'dkwl_assign_color_scheme', 5, 3 );
 
 /**
+* modifies the "from email address" used in an email sent
+*/
+function dkwl_wp_mail_from( $original_email_address ) {
+  $enable_email = get_option('dkwl_enable_email', '' );
+
+  if( $enable_email == 'on' ) {
+    $email_from = get_option('dkwl_email_from', get_option( 'admin_email' ) );
+    return $email_from;
+  }
+
+  return $original_email_address;
+}
+add_filter( 'wp_mail_from', 'dkwl_wp_mail_from' );
+
+/**
+* modifies the "from name" used in an email sent
+*/
+function dkwl_wp_mail_from_name( $original_email_from ) {
+  $enable_email = get_option('dkwl_enable_email', '' );
+
+  if( $enable_email == 'on' ) {
+  	return get_option('dkwl_email_from_name', get_option( 'blogname' ) );;
+  }
+
+  return $original_email_from;
+}
+add_filter( 'wp_mail_from_name', 'dkwl_wp_mail_from_name' );
+
+/**
+* filter the mail content type
+*/
+function dkwl_set_html_mail_content_type() {
+  $enable_email = get_option('dkwl_enable_email', '' );
+  $html_formated_email = get_option('dkwl_html_formated_email', '' );
+
+  if( $enable_email == 'on' && $html_formated_email == 'on' ) {
+    add_filter( 'wp_mail_content_type', create_function('', 'return "text/html";') );
+  }
+}
+add_filter( 'init', 'dkwl_set_html_mail_content_type' );
+
+/**
+* allow html emails
+*/
+function serenity_form_allow_email_html(){
+  /*
+  $enable_email = get_option('dkwl_enable_email', '' );
+  $html_formated_email = get_option('dkwl_html_formated_email', '' );
+  if( $enable_email == 'on' && $html_formated_email == 'on' ) {
+	   add_filter('wp_mail_content_type', create_function('', 'return "text/html";'));
+  }
+  */
+}
+add_action('init', 'serenity_form_allow_email_html');
+
+/**
+* email from name
+*/
+/*
+function serenity_form_wp_mail_from_name( $original_email_from ) {
+  $enable_email = get_option('dkwl_enable_email', '' );
+
+  if( $enable_email == 'on' ) {
+
+    //$email_from = get_option('dkwl_email_from', get_option( 'blogname' ) );
+    //return $email_from;
+
+    $email_from_name = 'Serenity Contact Form';
+  	return $email_from_name;
+  }
+
+  //return $original_email_from;
+
+
+
+}
+add_filter( 'wp_mail_from_name', 'serenity_form_wp_mail_from_name' );
+*/
+
+
+
+/**
 * sanitize dkwl options
-*/ 
+*/
 function dkwl_sanitize_options() {
-    add_filter( 'pre_update_option_dkwl_admin_footer_text', 'dkwl_update_field_admin_footer_text', 10, 2 );  
+    add_filter( 'pre_update_option_dkwl_admin_footer_text', 'dkwl_update_field_admin_footer_text', 10, 2 );
 }
 add_action( 'init', 'dkwl_sanitize_options' );
 
@@ -255,7 +337,3 @@ function dkwl_update_field_admin_footer_text( $new_value, $old_value ) {
     return $new_value;
 
 }
-
-
-
-
