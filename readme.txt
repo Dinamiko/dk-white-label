@@ -2,8 +2,8 @@
 Contributors: dinamiko
 Tags: admin branding, appearance, branding, client, cms, custom, custom login, custom admin, custom admin dashboard, custom branding, dashboard, login, login page, login screen, remove admin bar, white label admin, white label cms,
 Requires at least: 3.9.6
-Tested up to: 4.5.3
-Stable tag: 1.0
+Tested up to: 4.7.2
+Stable tag: 1.1
 
 Customize WordPress Dashboard Branding
 
@@ -15,8 +15,9 @@ Take control over Dashboard experience with DK White Label.
 = Features =
 
 * Login Screen Customization
-* Hide Dashboard UI Elements
 * Create your own Color Scheme
+* Hide Dashboard UI Elements
+* Email fields to from...
 
 = Github =
 
