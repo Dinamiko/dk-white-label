@@ -1,5 +1,4 @@
 # DK White Label
-This repo is where all development happens, feel free to create a new issue or an improvement idea. Pull requests are welcome as well :)
 
 ### run tests
 IMPORTANT: don't run the tests in a production WordPress site, database is deleted and recreated on each test run.
