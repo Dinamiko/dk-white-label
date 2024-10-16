@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: DK White Label
- * Version: 1.1
+ * Version: 1.2
  * Plugin URI:
  * Description: Customize WordPress Dashboard Branding.
  * Author: Emili Castells

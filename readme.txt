@@ -3,7 +3,7 @@ Contributors: dinamiko
 Tags: admin branding, appearance, branding, client, cms, custom, custom login, custom admin, custom admin dashboard, custom branding, dashboard, login, login page, login screen, remove admin bar, white label admin, white label cms,
 Requires at least: 3.9.6
 Tested up to: 4.7.2
-Stable tag: 1.1
+Stable tag: 1.2
 
 Customize WordPress Dashboard Branding
 
@@ -39,6 +39,8 @@ Installing "DK White Label" can be done either by searching for "DK White Label"
 
 == Changelog ==
 
+= 1.2 =
+* Fix - Reflected XSS
 = 1.1 =
 * WordPress Email
 = 1.0 =
